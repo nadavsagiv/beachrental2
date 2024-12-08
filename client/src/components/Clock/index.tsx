@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState, useEffect } from 'react';
 import { Typography, Box, styled } from '@mui/material';
 import { format } from 'date-fns';

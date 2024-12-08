@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Typography, Box, Alert, Snackbar } from '@mui/material';
-import type { Rental } from '../shared/types';
 
 interface TimerProps {
   startTime: string;

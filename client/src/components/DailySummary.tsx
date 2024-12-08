@@ -1,5 +1,5 @@
 import { Paper, Grid, Typography, Box, Button, Dialog, DialogTitle, DialogContent, DialogActions, Snackbar, Alert, CircularProgress } from '@mui/material';
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import { useRentals } from '../hooks/useRentals';
 import { useState } from 'react';
@@ -81,7 +81,6 @@ export default function DailySummary() {
 
   // Calculate totals from all rentals (both active and completed)
   const totals = rentals.reduce((acc, rental) => {
-    const baseAmount = rental.basePrice;
     const finalAmount = rental.finalPrice || rental.basePrice;
     const discount = rental.discount || 0;
 

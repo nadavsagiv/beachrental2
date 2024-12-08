@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import type { Rental, RentalType, PaymentMethod, CreateRentalDto, UpdateRentalDto } from '../shared/types';
+import type { Rental, RentalType, CreateRentalDto, UpdateRentalDto } from '../shared/types';
 import api from '../utils/api';
 
 export function useRentals() {

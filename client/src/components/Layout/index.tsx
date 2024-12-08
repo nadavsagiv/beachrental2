@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import type { RentalFormData, RentalType, PaymentMethod } from '../../shared/types';
 import {
   Box,
@@ -345,7 +345,7 @@ export default function Layout() {
           }
         }}
       >
-        <DialogTitle sx={{ textAlign: 'center', pt: 3 }}>השכרה חדשה</DialogTitle>
+        <DialogTitle sx={{ textAlign: 'center', pt: 3 }}>ה��כרה חדשה</DialogTitle>
         <DialogContent>
           <Stepper activeStep={activeStep} sx={{ mb: 4 }}>
             {STAGES.map((label) => (
