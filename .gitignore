@@ -18,6 +18,9 @@ out/
 # Database
 *.db
 *.db-journal
+/server/rental.db
+/server/rental.db-journal
+/server/prisma/migrations/
 
 # Logs
 logs/
@@ -42,4 +45,14 @@ coverage/
 .env.local
 .env.development.local
 .env.test.local
-.env.production.local 
+.env.production.local
+
+# Prisma
+/server/prisma/.env
+
+# Next.js
+.next/
+.vercel/
+
+# TypeScript
+*.tsbuildinfo 

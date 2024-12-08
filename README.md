@@ -1,88 +1,96 @@
-# הרפסודה - מערכת ניהול השכרות
+# הרפסודה - Rental Management System
 
-מערכת לניהול השכרות של סאפים, מיטות ושנורקלים.
+A rental management system for water sports equipment and beach beds.
 
-## תכונות עיקריות
+## Features
 
-- ניהול השכרות בזמן אמת
-- מעקב אחר זמני השכרה
-- תמיכה בסוגי השכרה שונים:
-  - סאפים (חצי שעה - 60₪, שעה - 100₪)
-  - מיטות (150₪ לעד 3 אנשים, 50₪ לכל אדם נוסף)
-  - שנורקלים (35₪ לשעתיים)
-- ניהול תשלומים (מזומן/אשראי)
-- מעקב אחר הכנסות יומיות
-- תצוגת השכרות פעילות והיסטוריה
-- טיימר לכל השכרה
-- אפשרות להנחות
+- Track rentals for SUPs, beach beds, and snorkeling equipment
+- Real-time pricing calculations
+- Customer management
+- Payment tracking
+- Daily summaries
+- Responsive web interface
 
-## טכנולוגיות
+## Tech Stack
 
-- Frontend:
-  - React
-  - TypeScript
-  - Material-UI
-  - React Query
-  - date-fns
+- Frontend: Next.js with TypeScript
+- Backend: Express.js with TypeScript
+- Database: SQLite with Prisma ORM
+- Styling: Tailwind CSS
 
-- Backend:
-  - Node.js
-  - Express
-  - Prisma
-  - SQLite
+## Setup
 
-## התקנה
+### Prerequisites
 
-1. התקנת dependencies:
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
 ```bash
-# התקנת חבילות בצד הלקוח
-cd client
+git clone [repository-url]
+```
+
+2. Install dependencies:
+```bash
+# Install server dependencies
+cd server
 npm install
 
-# התקנת חבילות בצד השרת
-cd ../server
+# Install client dependencies
+cd ../client
 npm install
 ```
 
-2. הגדרת בסיס הנתונים:
+3. Set up the database:
 ```bash
 cd server
-npx prisma migrate dev
+npx prisma generate
+npx prisma db push
 ```
 
-3. הפעלת המערכת:
+4. Create environment files:
+
+Server (.env in server directory):
+```
+PORT=3001
+DATABASE_URL="file:../rental.db"
+```
+
+Client (.env.local in client directory):
+```
+NEXT_PUBLIC_API_URL=http://localhost:3001
+```
+
+### Running the Application
+
+1. Start the server:
 ```bash
-# הפעלת השרת
 cd server
 npm run dev
+```
 
-# הפעלת הלקוח (בטרמינל נפרד)
+2. Start the client:
+```bash
 cd client
 npm run dev
 ```
 
-## שימוש
+The application will be available at:
+- Frontend: http://localhost:3000
+- Backend: http://localhost:3001
 
-1. פתיחת השכרה חדשה:
-   - לחיצה על "השכרה חדשה"
-   - בחירת סוג השכרה (סאפ/מיטה/שנורקל)
-   - הזנת פרטי לקוח ומשך זמן
-   - בחירת אמצעי תשלום
+## API Endpoints
 
-2. סיום השכרה:
-   - לחיצה על "סיום" בכרטיס ההשכרה
+- `GET /api/rentals` - List all rentals
+- `POST /api/rentals` - Create new rental
+- `PATCH /api/rentals/:id` - Update rental
+- `POST /api/rentals/:id/end` - End rental
+- `DELETE /api/rentals/:id` - Delete rental
 
-3. צפייה בסיכום יומי:
-   - סך הכנסות
-   - מספר השכרות לפי סוג
-   - אפשרות לסיום יום
+## Pricing
 
-## תחזוקה
-
-- גיבוי בסיס הנתונים:
-  - הקובץ נמצא ב-`server/rental.db`
-  - מומלץ לגבות באופן יומי
-
-## רישיון
-
-כל הזכויות שמורות © 2024 
+- Beach Beds: 150₪ base (up to 3 people), +50₪ per additional person
+- SUP: 60₪/30min, 100₪/hour
+- Snorkeling: 35₪ fixed price for 2 hours 
